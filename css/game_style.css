@@ -32,8 +32,9 @@ table {
     color: #fff;
   }
   
-  .k{
+ .k{
     background-color: #5f4419;
+    /* opacity: 0.5; */
   }
 
   /* Set the container to fill the entire viewport */
