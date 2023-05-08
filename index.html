@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TreasureHunt</title>
+    <!-- <meta name="viewport" content="width=device-width, user-scalable=no"> -->
+
+
+      <!-- custom css link -->
+      <link rel="stylesheet" href="./css/game_style.css">
+      <!-- google font -->
+      <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+  
+
+
+
+
+    <div class="container">
+
+      <div class="info">
+        
+       
+
+        <div class="hintContainer">
+
+          <div class="rules hint">
+            
+             <ul>
+              <h3> Rules for Treasure Hunt</h3><br>
+                <li>There is treasure hidden in one of the cells.</li><br>
+                <li>you can pick any cell</li><br>
+                <ul>
+                  <li>if lucky,you land on the treasure.</li><br>
+                  <li>if not, I'll tell you how far the treasure is away.</li>
+                </ul><br>
+                <li>The number in the square shows the number of steps to reach the treasure along the shortest path.</li><br>
+                <li> You can move up,down,left or right.You can't move diagonally. </li><br>
+                <h4> Can you find the hidden treasure?</h4>
+             </ul>
+             
+          </div>
+
+          <div class="hint" id="hint" style="display: none;">
+            <h3>INSTRUCTION :</h3>
+            <p id="stepsAway" style="font-size: larger;"></p><br>
+          </div>
+    
+          <div  id="foundTreasure" style="display: none;" >
+            <h3 >Yay, you Found the Treasure! <br><span><img src="./images/Treasure.png"  height='65' width='65' alt="treasure"></span> </h3>
+            
+            <button class="play-again" onclick="location.reload()">Play Again</button>
+          </div>
+        </div>
+     </div>
+
+
+      <div class="game">
+        <div class="gameContainer">
+         
+          <table>
+            <thead>
+              <tr>
+                <th class="k"></th>
+                <th class="k">A</th>
+                <th class="k">B</th>
+                <th class="k">C</th>
+                <th class="k">D</th>
+                <th class="k">E</th>
+                <th class="k">F</th>
+                <th class="k">G</th>
+                <th class="k">H</th>
+                <th class="k"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <script src="./js/game_logic.js"></script>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th class="k"></th>
+                <th class="k">A</th>
+                <th class="k">B</th>
+                <th class="k">C</th>
+                <th class="k">D</th>
+                <th class="k">E</th>
+                <th class="k">F</th>
+                <th class="k">G</th>
+                <th class="k">H</th>
+                <th class="k"></th>
+              </tr>
+            </tfoot>
+          </table>
+          
+      </div>
+      <div class="background-image"></div>
+      </div>
+
+    </div>
+
+
+
+  </body>
+</html>
