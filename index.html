@@ -30,9 +30,9 @@
              <ul>
               <h3> Rules for Treasure Hunt</h3><br>
                 <li>There is treasure hidden in one of the cells.</li><br>
-                <li>you can pick any cell</li><br>
+                <li>You can pick any cell</li><br>
                 <ul>
-                  <li>if lucky,you land on the treasure.</li><br>
+                  <li>if lucky, you land on the treasure.</li><br>
                   <li>if not, I'll tell you how far the treasure is away.</li>
                 </ul><br>
                 <li>The number in the square shows the number of steps to reach the treasure along the shortest path.</li><br>
@@ -42,16 +42,21 @@
              
           </div>
 
-          <div class="hint" id="hint" style="display: none;">
-            <h3>INSTRUCTION :</h3>
-            <p id="stepsAway" style="font-size: larger;"></p><br>
-          </div>
-    
           <div  id="foundTreasure" style="display: none;" >
             <h3 >Yay, you Found the Treasure! <br><span><img src="./images/Treasure.png"  height='65' width='65' alt="treasure"></span> </h3>
-            
+          </div>
+
+          <div class="hint" id="hint" style="display: none;">
+            <h3>INSTRUCTION </h3>
+            <p id="stepsAway" style="font-size: larger;"></p><br>
+          </div>
+
+          <div id="countDiv" style="display: none;"> 
+            <p id="count"></p>
+            <button class="play-again" onclick="window.location.href='../index.html'">Go Back</button>
             <button class="play-again" onclick="location.reload()">Play Again</button>
           </div>
+
         </div>
      </div>
 
