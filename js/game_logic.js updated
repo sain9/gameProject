@@ -15,7 +15,9 @@ for (let i = 0; i < tdList.length; i++) {
   tdList[i].addEventListener("click", function() {
     let row = this.parentElement.rowIndex;
     let col = this.cellIndex ;
-    console.log("Clicked on row,Y:  " + row + " and column, X: " + col);
+    // console.log("Clicked on row,Y:  " + row + " and column, X: " + col);
+
+    
 
     //setting point X and Y
     var pointX = col;
@@ -28,7 +30,7 @@ for (let i = 0; i < tdList.length; i++) {
 
     //switched current position
     var currentPosition = switchedX + "," + pointY;
-    console.log("current position: ",currentPosition);
+    // console.log("current position: ",currentPosition);
 
     //switched treasure position
     var treasurePosition = convertToLetter(xAxisTreasurePoint) + "," + yAxisTreasurePoint;
@@ -55,7 +57,10 @@ for (let i = 0; i < tdList.length; i++) {
 
     // for hint and stepsAway
     var stepsAway = hintx + hinty ;
+    if(gameOver !== true)
     document.getElementById("stepsAway").innerHTML = "> you are at {" + currentPosition + "} and " + stepsAway + " steps away from the Treasure";
+    else if (gameOver === true)
+    document.getElementById("stepsAway").innerHTML = `GAME OVER! You Already Found Treasure at {${treasurePosition}} `;
    //to generate new messages
     // var msg = "> you are at {" + currentPosition + "} and " + stepsAway + " steps away from the Treasure";
     // console.log(msg);
@@ -75,19 +80,29 @@ for (let i = 0; i < tdList.length; i++) {
          
     }
     else { 
-      //  this.style.backgroundColor = "red"; 
-      this.style.backgroundImage = "url('./images/Hole_in_Ground.png' )";
-      this.style.backgroundSize = "cover";
-
-      this.style.position = "relative"; // add relative position to the element
-  
-      // create the pseudo-element for the text layer
-      let textLayer = document.createElement("div");
-      textLayer.classList.add("text-layer");
-      textLayer.innerText = `${stepsAway}`;
+      if (gameOver) {
+        this.style.backgroundImage = "url('./images/gameover.png')";
+        this.style.backgroundSize = "99%";
+        // this.style.backgroundSize = "contain";
+        // this.style.backgroundSize = "cover";
+        this.style.backgroundPosition = "center";
+        this.style.backgroundRepeat = "no-repeat"; 
+        // this.style.backgroundColor="white"
+      } else {
+        //  this.style.backgroundColor = "red"; 
+        this.style.backgroundImage = "url('./images/Hole_in_Ground.png')";
+        this.style.backgroundSize = "cover";
+        this.style.position = "relative"; // add relative position to the element
       
-      // append the pseudo-element to the element
-      this.appendChild(textLayer);
+        // create the pseudo-element for the text layer
+        let textLayer = document.createElement("div");
+        textLayer.classList.add("text-layer");
+        textLayer.innerText = `${stepsAway}`;
+        
+        // append the pseudo-element to the element
+        this.appendChild(textLayer);
+      }
+      
 
     }
 
@@ -98,7 +113,7 @@ for (let i = 0; i < tdList.length; i++) {
       }
 
       //when treasure is found
-      if (stepsAway === 0 ) {
+      if (stepsAway === 0 && treasureFound !== true ) {
         // display foundTreasure div
         const myDiv = document.getElementById("foundTreasure");
         myDiv.style.display = "block";
@@ -106,16 +121,62 @@ for (let i = 0; i < tdList.length; i++) {
         // hide foundTreasure div
         const myDiv2 = document.getElementById("hint");
         myDiv2.style.display = "none";
+
+        //display countDiv 
+        const myDiv3 = document.getElementById("countDiv");
+        myDiv3.style.display = "block";
         
       }
 
-    // this.style.backgroundColor = "red"; 
+   
+   
+    //count
+      count++;
+      console.log("count : "+count);
+      if (gameOver && treasureFoundAt < count) {
+        document.getElementById("count").innerHTML = "Want to try again ? Give your best this time"
+      } else {
+        if(count === 1 && stepsAway === 0  ) {
+          document.getElementById("count").innerHTML = ` Awesome, you went God mode and in just one click you found the treasure `;
+           }
+        else if(count === 2 && stepsAway === 0) {
+          document.getElementById("count").innerHTML = `{Number of attempts made : ${count}} Wow, can you find the treasure in one click ?`;
+        }
+        else {
+          document.getElementById("count").innerHTML = ` {Number of attempts made : ${count}} Great. Now, can you find the treasure in ${count - 1} attempts ?`;
+       
+        }
+      }
+
+     
+
+    
+      //logic for refreshing when treasure is found and again clicked on the board
+      if(stepsAway === 0) {
+        treasureFound =  true;
+        treasureFoundAt = count;
+        console.log("game over");
+        gameOver = true;
+      }
+      console.log("treasureFound : "+treasureFound +"\ntreasureFoundAt : "+treasureFoundAt);
+      if(gameOver && count > treasureFoundAt){
+       
+      }
+   
+     
   });
 }
+
+//count should be define outside the even listener and should be used inside it.
+let count = 0;
+let treasureFound = false;
+let treasureFoundAt = 0;
+let gameOver = false;
 
  var convertToLetter = (pointX) => {
  const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
  return alphabet[pointX - 1];
+
  }
 
  //  treasure co-ordinates
