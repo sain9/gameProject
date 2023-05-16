@@ -57,7 +57,10 @@ for (let i = 0; i < tdList.length; i++) {
 
     // for hint and stepsAway
     var stepsAway = hintx + hinty ;
-    if(gameOver !== true)
+    
+      
+    
+     if(gameOver !== true)
     document.getElementById("stepsAway").innerHTML = "> you are at {" + currentPosition + "} and " + stepsAway + " steps away from the Treasure";
     else if (gameOver === true)
     document.getElementById("stepsAway").innerHTML = `GAME OVER! You Already Found Treasure at {${treasurePosition}} `;
@@ -98,6 +101,7 @@ for (let i = 0; i < tdList.length; i++) {
         let textLayer = document.createElement("div");
         textLayer.classList.add("text-layer");
         textLayer.innerText = `${stepsAway}`;
+        // textLayer.style.fontSize = "1em";
         
         // append the pseudo-element to the element
         this.appendChild(textLayer);
@@ -107,24 +111,20 @@ for (let i = 0; i < tdList.length; i++) {
     }
 
       //to make hint div visible
-      if (pointY && stepsAway !== 0) {
-        const myDiv = document.getElementById("hint");
-        myDiv.style.display = "block";
-      }
+      // if (pointY && stepsAway !== 0) {
+      //   const myDiv = document.getElementById("hint");
+      //   myDiv.style.display = "block";
+      // }
 
       //when treasure is found
-      if (stepsAway === 0 && treasureFound !== true ) {
-        // display foundTreasure div
-        const myDiv = document.getElementById("foundTreasure");
-        myDiv.style.display = "block";
-
+      if (stepsAway === 0 ) {
+        
+        gameOver =true  
         // hide foundTreasure div
         const myDiv2 = document.getElementById("hint");
         myDiv2.style.display = "none";
 
-        //display countDiv 
-        const myDiv3 = document.getElementById("countDiv");
-        myDiv3.style.display = "block";
+        showResultModal();
         
       }
 
@@ -133,19 +133,16 @@ for (let i = 0; i < tdList.length; i++) {
     //count
       count++;
       console.log("count : "+count);
-      if (gameOver && treasureFoundAt < count) {
-        document.getElementById("count").innerHTML = "Want to try again ? Give your best this time"
+      if (stepsAway ===0 && count > 2) {
+        document.getElementById("count").innerHTML = ` {Number of attempts made : ${count}} Great. Now, can you find the treasure in ${count - 1} attempts ?`;
       } else {
-        if(count === 1 && stepsAway === 0  ) {
+        if( stepsAway === 0 && count === 1) {
           document.getElementById("count").innerHTML = ` Awesome, you went God mode and in just one click you found the treasure `;
            }
-        else if(count === 2 && stepsAway === 0) {
+        else if( stepsAway === 0 && count === 2) {
           document.getElementById("count").innerHTML = `{Number of attempts made : ${count}} Wow, can you find the treasure in one click ?`;
         }
-        else {
-          document.getElementById("count").innerHTML = ` {Number of attempts made : ${count}} Great. Now, can you find the treasure in ${count - 1} attempts ?`;
-       
-        }
+      
       }
 
      
@@ -172,6 +169,7 @@ let count = 0;
 let treasureFound = false;
 let treasureFoundAt = 0;
 let gameOver = false;
+document.getElementById("stepsAway").innerHTML = "> click on the board to start";
 
  var convertToLetter = (pointX) => {
  const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
@@ -191,4 +189,10 @@ var randomNumber = (min, max) => {
   var xAxisTreasurePoint = randomNumber(1, 8);
   var yAxisTreasurePoint = randomNumber(1, 8);
   console.log("xAxisTreasurePoint : ",xAxisTreasurePoint,"yAxisTreasurePoint : ",yAxisTreasurePoint);
+
+  // ##########################################################
+// promt model
+function showResultModal() {
+  document.querySelector('.result-modal').style.display = "block";
+}
 
