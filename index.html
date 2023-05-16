@@ -1,67 +1,91 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>TreasureHunt</title>
-    <!-- <meta name="viewport" content="width=device-width, user-scalable=no"> -->
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+   <!-- custom css link -->
+   <link rel="stylesheet" href="./css/game_style.css">
+   <!-- google font -->
+   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Mogra&display=swap" rel="stylesheet">
 
-      <!-- custom css link -->
-      <link rel="stylesheet" href="./css/game_style.css">
-      <!-- google font -->
-      <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    
+  </style>
+</head>
+<body>
 
-  </head>
-  <body>
-  
-
-
-
-
-    <div class="container">
-
-      <div class="info">
+<div class="container-fluid">
+<!-- prompt model -->
+  <div class="result-modal">
+    <div class="result-modal-content">
+      <center><img src="./images/Treasure.png" alt="Congratulations image"></center>
+      <div class="result-modal-heading">
+        <p style="color: darkgreen;">Yay,you found the treasure!</p>
         
-       
+      </div>
+      <p id="count"></p>
+      <div class="result-modal-buttons">
+        <button class="btn btn-secondary btn-animated" onclick="window.location.href='../index.html'" >Go back</button>
+        <button class="btn btn-primary btn-animated" onclick="location.reload()" >Play again</button>
+      </div>
+    </div>
+  </div>
+<!-- end of prompt model -->
 
+  <div class="row content">
+    <div class="col-sm-4 sidenav">
+      <div class="info">
+ 
         <div class="hintContainer">
 
-          <div class="rules hint">
-            
-             <ul>
-              <h3> Rules for Treasure Hunt</h3><br>
-                <li>There is treasure hidden in one of the cells.</li><br>
-                <li>You can pick any cell</li><br>
+          <div class="rules hint"><br>
+            <center><p>Rules for Treasure Hunt</p></center>
+            <ul>
+             
+                <li>There is treasure hidden in one of the cells.</li>
+                <li>You can pick any cell</li>
                 <ul>
-                  <li>if lucky, you land on the treasure.</li><br>
+                  <li>if you are lucky, it will have the treasure.</li>
                   <li>if not, I'll tell you how far the treasure is away.</li>
-                </ul><br>
-                <li>The number in the square shows the number of steps to reach the treasure along the shortest path.</li><br>
-                <li> You can move up,down,left or right.You can't move diagonally. </li><br>
-                <h4> Can you find the hidden treasure?</h4>
+                </ul>
+                <li>The number in the square shows the number of steps to reach the treasure along the shortest path.</li>
+                <li> You can move up,down,left or right.You can't move diagonally. </li>
+                <p> Can you find the hidden treasure?</p>
              </ul>
              
           </div>
 
-          <div  id="foundTreasure" style="display: none;" >
+          <!-- <div  id="foundTreasure" style="display: none;" >
             <h3 >Yay, you Found the Treasure! <br><span><img src="./images/Treasure.png"  height='65' width='65' alt="treasure"></span> </h3>
-          </div>
+          </div> -->
 
-          <div class="hint" id="hint" style="display: none;">
-            <h3>INSTRUCTION </h3>
-            <p id="stepsAway" style="font-size: larger;"></p><br>
-          </div>
+        
 
-          <div id="countDiv" style="display: none;"> 
+          <!-- <div id="countDiv" style="display: none;"> 
             <p id="count"></p>
             <button class="play-again" onclick="window.location.href='../index.html'">Go Back</button>
             <button class="play-again" onclick="location.reload()">Play Again</button>
+          </div> -->
+
+          <div class="inst" id="hint" >
+            <h2>INSTRUCTION </h2>
+            <p id="stepsAway" style="font-size: larger;"></p><br>
           </div>
 
         </div>
      </div>
+    </div>
 
-
+    <div class="col-sm-8">
+      
       <div class="game">
+        
         <div class="gameContainer">
          
           <table>
@@ -99,12 +123,16 @@
           </table>
           
       </div>
-      <div class="background-image"></div>
+         <div class="background-image"></div>
+         
       </div>
-
     </div>
+  </div>
+</div>
 
+<!-- <footer class="container-fluid">
+  <p>Footer Text</p>
+</footer> -->
 
-
-  </body>
+</body>
 </html>
