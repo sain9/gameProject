@@ -430,10 +430,10 @@ background-color: rgb(1, 111, 34);
     font-size: 1.8em;
   }
   
-  .result-modal-content img {
-    width:;rem;
-    height: ;rem;
-    margin-top: 1em;
+ .result-modal-content img {
+    width:7rem;
+    height: 7rem;
+    margin-top: 0.5em;
   }
   
   .result-modal-content button {
