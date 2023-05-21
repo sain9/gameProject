@@ -78,7 +78,8 @@ th {
   font-size: 2.5rem;
   color: #fff;
   /* text-align: center; */
-  font-family: 'Alkatra', cursive;
+  /* font-family: 'Alkatra', cursive; */
+  font-family: 'Teko', sans-serif;
   z-index: 1111;
   position: relative;
   
@@ -340,7 +341,8 @@ th {
   overflow: auto;
   background-color: rgba(0,0,0,0.7);
   opacity: 90%;
-  font-family: 'Alkatra', cursive, "Arial", "sans-serif";
+  /* font-family: 'Alkatra', cursive, "Arial", "sans-serif"; */
+  font-family: 'Teko', sans-serif;
 }
 
 .result-modal-content {
