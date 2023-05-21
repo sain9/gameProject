@@ -3,8 +3,9 @@ body{
   background-color: rgba(0, 109, 130, 1);
   z-index: 1;
   position: fixed;
-width: 100vw;
-height: 100vh;
+  overflow-y: scroll;
+  width: 100vw;
+  height: 100vh;
 }
 
 table {
@@ -67,13 +68,13 @@ th {
   font-size: 2.5rem;
   color: #fff;
   /* margin-bottom: 3rem; */
-  font-family: 'Alkatra', cursive, "Arial", "sans-serif";
+  font-family: 'Teko', sans-serif;
   z-index: 1111;
 }
 .inst {
   text-align: center;
    margin-top: 9rem;
-  /* margin-left: 31rem;  */
+  /* margin-left: 31rem;  */  
   font-size: 2.5rem;
   color: #fff;
   /* text-align: center; */
@@ -83,8 +84,11 @@ th {
   
 }
 #count {
-  font-size: larger;
+  font-size: 2rem;
+  color: rgb(118, 87, 29);
 }
+
+#count 
 
 
 #stepsAway {
@@ -150,6 +154,21 @@ th {
 
 /* Media query for small screens */
 @media (max-width: 576px) {
+  .container-fluid {
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  body {
+    background-color: rgba(0, 109, 130, 1);
+    z-index: 1;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+  }
+  
   table {
     /* width: 100%; */
     height: 90%;
@@ -188,13 +207,14 @@ th {
 
   .hint {
     font-size: 1.5rem;
+    padding: 1rem;
   }
 
   .inst {
     font-size: 1.3rem;
     /* text-align: center; */
-     margin-top: 5rem;
-     margin-bottom: 1rem;
+     margin-top: 3rem;
+     /* margin-bottom: 1rem; */
     }
 
 
@@ -202,6 +222,23 @@ th {
 
 /* Media query for medium screens */
 @media (min-width: 576px) and (max-width: 768px) {
+
+  .container-fluid {
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  body {
+    background-color: rgba(0, 109, 130, 1);
+    z-index: 1;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+  }
+
+
   table {
     width: 60%;
     height: 60%;
@@ -323,7 +360,7 @@ th {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .result-modal-heading p {
@@ -397,7 +434,7 @@ background-color: rgb(1, 111, 34);
   .result-modal-content {
     margin-top: 30%;
    
-    margin: 81% auto; /* mobile view prompt position */
+    margin: 51% auto; /* mobile view prompt position */
     padding: 10px;
     width: 80%;
   }
@@ -430,7 +467,7 @@ background-color: rgb(1, 111, 34);
     font-size: 1.8em;
   }
   
- .result-modal-content img {
+  .result-modal-content img {
     width:7rem;
     height: 7rem;
     margin-top: 0.5em;
