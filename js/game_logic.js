@@ -134,13 +134,13 @@ for (let i = 0; i < tdList.length; i++) {
       count++;
       console.log("count : "+count);
       if (stepsAway ===0 && count > 2) {
-        document.getElementById("count").innerHTML = ` {Number of attempts made : ${count}} Great. Now, can you find the treasure in ${count - 1} attempts ?`;
+        document.getElementById("count").innerHTML = ` <center>Number of attempts made : ${count} <br><h3>Great, Now can you find the treasure in ${count - 1} attempts ? </h3></center>`;
       } else {
         if( stepsAway === 0 && count === 1) {
           document.getElementById("count").innerHTML = ` Awesome, you went God mode and in just one click you found the treasure `;
            }
         else if( stepsAway === 0 && count === 2) {
-          document.getElementById("count").innerHTML = `{Number of attempts made : ${count}} Wow, can you find the treasure in one click ?`;
+          document.getElementById("count").innerHTML = ` Number of attempts made : ${count} <br> <h3> Wow, can you find the treasure in one click ?</h3>`;
         }
       
       }
